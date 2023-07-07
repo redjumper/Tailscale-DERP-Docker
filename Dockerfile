@@ -3,7 +3,7 @@ FROM alpine:latest
 LABEL org.opencontainers.image.source https://github.com/tijjjy/Tailscale-DERP-Docker
 
 #Install Tailscale and requirements
-RUN apk add curl iptables
+RUN apk add curl iptables iproute2
 
 #Install GO and Tailscale DERPER
 RUN apk add go --repository=https://mirrors.aliyun.com/alpine/edge/community
