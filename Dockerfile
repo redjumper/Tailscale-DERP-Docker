@@ -14,6 +14,9 @@ LABEL org.opencontainers.image.source https://github.com/tijjjy/Tailscale-DERP-D
 #Install Tailscale and requirements
 RUN apk add --no-cache curl iptables iproute2
 
+#Install Tailscale and Tailscaled
+RUN apk add tailscale --repository=https://mirrors.aliyun.com/alpine/edge/community
+
 COPY --from=builder /go/bin/derper /root/go/bin/derper
 
 #Copy init script
