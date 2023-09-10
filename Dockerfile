@@ -2,7 +2,8 @@ FROM golang:alpine AS builder
 WORKDIR /app
 
 #Install GO and Tailscale DERPER
-RUN apk add go --repository=https://mirrors.aliyun.com/alpine/edge/community
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/' /etc/apk/repositories
+RUN apk update && RUN apk add go
 RUN go env -w GO111MODULE=on
 RUN go env -w GOPROXY=https://goproxy.cn
 RUN go install tailscale.com/cmd/derper@main
