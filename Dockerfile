@@ -12,7 +12,7 @@ FROM alpine:latest
 LABEL org.opencontainers.image.source https://github.com/tijjjy/Tailscale-DERP-Docker
 
 #Install Tailscale and requirements
-RUN apk add --no-cache curl iptables iproute2
+RUN apk add --no-cache curl iptables iproute2 --repository=https://mirrors.aliyun.com/alpine/edge/community
 
 #Install Tailscale and Tailscaled
 RUN apk add tailscale --repository=https://mirrors.aliyun.com/alpine/edge/community
