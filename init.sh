@@ -3,9 +3,9 @@
 #Start tailscaled and connect to tailnet
 /usr/sbin/tailscaled --state=/var/lib/tailscale/tailscaled.state >> /dev/stdout &
 if [ -n "$TAILSCALE_LOGIN_SERVER" ]; then
-  /usr/bin/tailscale up --login-server "$TAILSCALE_LOGIN_SERVER" --accept-dns --auth-key "$TAILSCALE_AUTH_KEY" >> /dev/stdout &
+  /usr/bin/tailscale up --login-server "$TAILSCALE_LOGIN_SERVER" --accept-dns=false --auth-key "$TAILSCALE_AUTH_KEY" >> /dev/stdout &
 else
-  /usr/bin/tailscale up --accept-dns --auth-key "$TAILSCALE_AUTH_KEY" >> /dev/stdout &
+  /usr/bin/tailscale up --accept-dns=false --auth-key "$TAILSCALE_AUTH_KEY" >> /dev/stdout &
 fi
 
 #Check for and or create certs directory
